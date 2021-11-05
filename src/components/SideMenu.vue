@@ -23,8 +23,8 @@
             class="legend__items"
           >
             <LegendItem
-              v-for="(item, index) in legend"
-              :key="index"
+              v-for="item in legend"
+              :key="item.group_id"
               :color="item.color"
               :text="item.text"
               :counter="item.counter"
@@ -80,7 +80,6 @@ export default {
       this.legend = legend;
     },
     closeProfile() {
-      console.log("closeProfile invoked");
       this.$emit("update:isUserOpened", false);
     },
     makeChart() {
@@ -103,7 +102,6 @@ export default {
   },
   mounted() {
     if (!this.isUserOpened) {
-      console.log("side menu mounted trigger");
       this.makeChart();
     }
   },
